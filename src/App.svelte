@@ -132,7 +132,7 @@
       height={216}
       follow="mario"
       roundPixels
-      bounds={{ x: 0, y: 0, width: (32 * 16), height: (16 * 16) }}
+      bounds={{ x: 0, y: 0, width: (64 * 16), height: (27 * 16) }}
     >
       <Player x={124} y={124} />
     </Camera>
