@@ -27,22 +27,40 @@
     jump: scene.input.keyboard.addKey('SPACE'),
   }
 
+  class KeysAndButtons {
+    static jump = {
+      get justDown() {
+        return Phaser.Input.Keyboard.JustDown(keys.jump) || (scene.input.gamepad.pad1 && scene.input.gamepad.pad1.A);
+      }
+    }
+    static left = {
+      get isDown() {
+        return keys.left.isDown || (scene.input.gamepad.pad1 && scene.input.gamepad.pad1.left);
+      }
+    }
+    static right = {
+      get isDown() {
+        return keys.right.isDown || (scene.input.gamepad.pad1 && scene.input.gamepad.pad1.right);
+      }
+    }
+  }
+
   // handle key inputs
   onGameEvent('step', () => {
     if (
-      (!keys.left.isDown && !keys.right.isDown) ||
-      (keys.left.isDown && keys.right.isDown)
+      (!KeysAndButtons.left.isDown && !KeysAndButtons.right.isDown) ||
+      (KeysAndButtons.left.isDown && KeysAndButtons.right.isDown)
     ) {
       velocityX = 0
-    } else if (keys.left.isDown) {
+    } else if (KeysAndButtons.left.isDown) {
       velocityX = -X_SPEED
       flipX = true
-    } else if (keys.right.isDown) {
+    } else if (KeysAndButtons.right.isDown) {
       flipX = false
       velocityX = X_SPEED
     }
 
-    if (Phaser.Input.Keyboard.JustDown(keys.jump) && instance.body.onFloor()) {
+    if (KeysAndButtons.jump.justDown && instance.body.onFloor()) {
       velocityY = -200
       animation = 'jump'
     } else if (Phaser.Input.Keyboard.JustUp(keys.jump) && velocityY < 0) {
