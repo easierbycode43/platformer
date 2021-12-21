@@ -4,20 +4,62 @@
     Game,
     Scene,
     Camera,
+    ObjectLayer,
     Tilemap,
     TileLayer,
     Spawner,
   } from 'svelte-phaser'
   import LoadingBar from './LoadingBar.svelte'
   import Player from './Player.svelte'
+  import Lakitu from './Lakitu.svelte'
+  import Chomp from './Chomp.svelte'
+  import Fish from './Fish.svelte'
+  import BigFish from './BigFish.svelte'
+  import Skelly from './Skelly.svelte'
+  import Bobomb from './Bobomb.svelte'
+  import BabyFish from './BabyFish.svelte'
+  import Chucka from './Chucka.svelte'
 
   let game
 
   $: window.game = game
 
   function preload(scene) {
-    scene.load.tilemapTiledJSON('tilemaps/castle', 'assets/tilemap.json')
+    // scene.load.tilemapTiledJSON('tilemaps/castle', 'assets/tilemap.json')
+    scene.load.tilemapTiledJSON('tilemaps/castle', 'assets/level3.json')
     scene.load.image('tilesets/castle', 'assets/castle-tileset.png')
+    scene.load.spritesheet('textures/bigfish', 'assets/big-fish.png', {
+      frameWidth: 24,
+      frameHeight: 32,
+    })
+    scene.load.spritesheet('textures/babyfish', 'assets/baby-fish.png', {
+      frameWidth: 13,
+      frameHeight: 12,
+    })
+    scene.load.spritesheet('textures/bobomb', 'assets/bobomb.png', {
+      frameWidth: 16,
+      frameHeight: 16,
+    })
+    scene.load.spritesheet('textures/chucka', 'assets/chucka.png', {
+      frameWidth: 16,
+      frameHeight: 15,
+    })
+    scene.load.spritesheet('textures/skelly', 'assets/skelly-fish.png', {
+      frameWidth: 24,
+      frameHeight: 15,
+    })
+    scene.load.spritesheet('textures/chomp', 'assets/chomp-ball.png', {
+      frameWidth: 32,
+      frameHeight: 32,
+    })
+    scene.load.spritesheet('textures/fish', 'assets/lipstick-fish.png', {
+      frameWidth: 16,
+      frameHeight: 16,
+    })
+    scene.load.spritesheet('textures/lakitu', 'assets/lakitu.png', {
+      frameWidth: 20,
+      frameHeight: 32,
+    })
     scene.load.spritesheet('textures/mario', 'assets/mario.png', {
       frameWidth: 21,
       frameHeight: 27,
@@ -30,6 +72,54 @@
 
   function create(scene) {
     scene.anims.create({
+      key: 'anims/bigfish/default',
+      frames: scene.anims.generateFrameNumbers('textures/bigfish'),
+      frameRate: 6,
+      repeat: -1,
+    })
+    scene.anims.create({
+      key: 'anims/babyfish/default',
+      frames: scene.anims.generateFrameNumbers('textures/babyfish'),
+      frameRate: 6,
+      repeat: -1,
+    })
+    scene.anims.create({
+      key: 'anims/chucka/default',
+      frames: scene.anims.generateFrameNumbers('textures/chucka'),
+      frameRate: 6,
+      repeat: -1,
+    })
+    scene.anims.create({
+      key: 'anims/bobomb/default',
+      frames: scene.anims.generateFrameNumbers('textures/bobomb'),
+      frameRate: 6,
+      repeat: -1,
+    })
+    scene.anims.create({
+      key: 'anims/skelly/default',
+      frames: scene.anims.generateFrameNumbers('textures/skelly'),
+      frameRate: 6,
+      repeat: -1,
+    })
+    scene.anims.create({
+      key: 'anims/chomp/default',
+      frames: scene.anims.generateFrameNumbers('textures/chomp'),
+      frameRate: 6,
+      repeat: -1,
+    })
+    scene.anims.create({
+      key: 'anims/fish/default',
+      frames: scene.anims.generateFrameNumbers('textures/fish'),
+      frameRate: 6,
+      repeat: -1,
+    })
+    scene.anims.create({
+      key: 'anims/lakitu/default',
+      frames: scene.anims.generateFrameNumbers('textures/lakitu'),
+      frameRate: 6,
+      repeat: -1,
+    })
+    scene.anims.create({
       key: 'anims/mario/idle',
       frames: scene.anims.generateFrameNumbers('textures/mario', {
         start: 2,
@@ -38,15 +128,6 @@
       frameRate: 6,
       repeat: -1,
     })
-    // scene.anims.create({
-    //   key: 'anims/player/idle',
-    //   frames: scene.anims.generateFrameNumbers('textures/player', {
-    //     start: 0,
-    //     end: 3,
-    //   }),
-    //   frameRate: 6,
-    //   repeat: -1,
-    // })
     scene.anims.create({
       key: 'anims/mario/run',
       frames: scene.anims.generateFrameNumbers('textures/mario', {
@@ -56,15 +137,6 @@
       frameRate: 8,
       repeat: -1,
     })
-    // scene.anims.create({
-    //   key: 'anims/player/run',
-    //   frames: scene.anims.generateFrameNumbers('textures/player', {
-    //     start: 8,
-    //     end: 13,
-    //   }),
-    //   frameRate: 8,
-    //   repeat: -1,
-    // })
     scene.anims.create({
       key: 'anims/mario/jump',
       frames: [
@@ -122,6 +194,7 @@
           collisionByProperty={{ collision: true }}
         />
         <TileLayer id="bg" tilesets={['castle-tileset']} />
+        <ObjectLayer id="enemies" components={{ BabyFish, BigFish, Bobomb, Chomp, Chucka, Fish, Lakitu, Skelly }} />
 
       </Tilemap>
     </Spawner>
@@ -132,7 +205,7 @@
       height={216}
       follow="mario"
       roundPixels
-      bounds={{ x: 0, y: 0, width: (64 * 16), height: (27 * 16) }}
+      bounds={{ x: 0, y: 0, width: (144 * 16), height: (27 * 16) }}
     >
       <Player x={124} y={124} />
     </Camera>
