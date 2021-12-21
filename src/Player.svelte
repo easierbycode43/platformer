@@ -61,7 +61,7 @@
     }
 
     if (KeysAndButtons.jump.justDown && instance.body.onFloor()) {
-      velocityY = -200
+      velocityY = -225
       animation = 'jump'
     } else if (Phaser.Input.Keyboard.JustUp(keys.jump) && velocityY < 0) {
       velocityY = 1
