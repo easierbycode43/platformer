@@ -49,17 +49,22 @@
 
   // handle key inputs
   onGameEvent('step', () => {
+
+    let runBtnMultiplier = 1;
+
+    if (scene.input.gamepad.pad1 && scene.input.gamepad.pad1.X)  runBtnMultiplier = 2;
+
     if (
       (!KeysAndButtons.left.isDown && !KeysAndButtons.right.isDown) ||
       (KeysAndButtons.left.isDown && KeysAndButtons.right.isDown)
     ) {
       velocityX = 0
     } else if (KeysAndButtons.left.isDown) {
-      velocityX = -X_SPEED
+      velocityX = -X_SPEED * runBtnMultiplier
       flipX = true
     } else if (KeysAndButtons.right.isDown) {
       flipX = false
-      velocityX = X_SPEED
+      velocityX = X_SPEED * runBtnMultiplier
     }
 
     if (KeysAndButtons.jump.justDown && instance.body.onFloor()) {
