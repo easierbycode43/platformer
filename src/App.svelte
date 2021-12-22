@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
   import Phaser from 'phaser'
   import {
     Game,
@@ -77,9 +77,11 @@
       frameWidth: 38,
       frameHeight: 216,
     })
+
+    scene.load.audio('sounds/bgmusic', 'assets/duaniac.mp3')
   }
 
-  function create(scene) {
+  function create(scene: Phaser.Scene) {
     scene.anims.create({
       key: 'anims/bigfish/default',
       frames: scene.anims.generateFrameNumbers('textures/bigfish'),
@@ -174,6 +176,10 @@
       frameRate: 6,
       repeat: -1,
     })
+    
+    scene.bgMusic = scene.sound.add( 'sounds/bgmusic' );
+
+    scene.bgMusic.play({ loop: true })
   }
 </script>
 
