@@ -65,6 +65,10 @@
       frameWidth: 21,
       frameHeight: 27,
     })
+    scene.load.spritesheet('textures/mario/particles', 'assets/mario-particles.png', {
+      frameWidth: 2,
+      frameHeight: 2,
+    })
     scene.load.spritesheet('textures/player', 'assets/adventurer.png', {
       frameWidth: 50,
       frameHeight: 37,

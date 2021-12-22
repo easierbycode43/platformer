@@ -7,6 +7,8 @@
     onGameEvent,
     ArcadeCollider,
   } from 'svelte-phaser'
+  import { onMount } from 'svelte'
+
 
   export let x: number
   export let y: number
@@ -87,6 +89,37 @@
       animation = 'fall'
     }
   }
+
+
+  let deathAnim = () => {};
+
+  onMount(() => {
+  let particles = scene.add.particles("textures/mario/particles");
+
+  instance.emitter = particles.createEmitter({
+    frequency: -1,
+    blendMode   : Phaser.BlendModes.NORMAL,
+    gravityY: 600,
+    alpha: {
+      start: 1,
+      end: 0,
+      ease: "Cubic.easeIn"
+    },
+    lifespan: 500,
+    speed: {
+      min: 0,
+      max: 2400
+    },
+    frame: [...Array(5).keys()],
+    follow: instance
+  });
+
+  deathAnim = () => {
+    instance.setVisible( false )
+
+    instance.emitter.explode( 100 )
+  }
+  })
 </script>
 
 <Sprite
@@ -106,4 +139,5 @@
     height={27}
   />
   <ArcadeCollider with="ground" />
+  <ArcadeCollider with="wall" on:collide={deathAnim} />
 </Sprite>
