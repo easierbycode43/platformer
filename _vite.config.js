@@ -1,7 +1,9 @@
-const svelte = require('@svitejs/vite-plugin-svelte')
-const { defineConfig } = require('vite')
+// const svelte = require('@svitejs/vite-plugin-svelte')
+// const { defineConfig } = require('vite')
+import * as svelte from '@svitejs/vite-plugin-svelte'
+import { defineConfig } from 'vite'
 
-module.exports = defineConfig(({ mode }) => {
+export default defineConfig(({ mode }) => {
   const isProduction = mode === 'production'
 
   /**

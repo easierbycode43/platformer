@@ -20,6 +20,7 @@
   import BabyFish from './BabyFish.svelte'
   import Chucka from './Chucka.svelte'
   import Wall from './Wall.svelte'
+  import Ryu from './Ryu.svelte'
 
   let game
 
@@ -40,6 +41,10 @@
     scene.load.spritesheet('textures/bobomb', 'assets/bobomb.png', {
       frameWidth: 16,
       frameHeight: 16,
+    })
+    scene.load.spritesheet('textures/ryu', 'assets/ryu.png', {
+      frameWidth: 32,
+      frameHeight: 32,
     })
     scene.load.spritesheet('textures/chucka', 'assets/chucka.png', {
       frameWidth: 16,
@@ -103,6 +108,12 @@
     scene.anims.create({
       key: 'anims/bobomb/default',
       frames: scene.anims.generateFrameNumbers('textures/bobomb'),
+      frameRate: 6,
+      repeat: -1,
+    })
+    scene.anims.create({
+      key: 'anims/ryu/default',
+      frames: scene.anims.generateFrameNumbers('textures/ryu'),
       frameRate: 6,
       repeat: -1,
     })
@@ -215,7 +226,7 @@
           collisionByProperty={{ collision: true }}
         />
         <TileLayer id="bg" tilesets={['castle-tileset']} />
-        <ObjectLayer id="enemies" components={{ BabyFish, BigFish, Bobomb, Chomp, Chucka, Fish, Lakitu, Skelly, Wall }} />
+        <ObjectLayer id="enemies" components={{ BabyFish, BigFish, Bobomb, Chomp, Chucka, Fish, Lakitu, Ryu, Skelly, Wall }} />
 
       </Tilemap>
     </Spawner>
