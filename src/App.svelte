@@ -19,14 +19,15 @@
   import Bobomb from './Bobomb.svelte'
   import BabyFish from './BabyFish.svelte'
   import Chucka from './Chucka.svelte'
+  import Wall from './Wall.svelte'
 
   let game
 
   $: window.game = game
 
   function preload(scene) {
-    // scene.load.tilemapTiledJSON('tilemaps/castle', 'assets/tilemap.json')
-    scene.load.tilemapTiledJSON('tilemaps/castle', 'assets/level3.json')
+    scene.load.tilemapTiledJSON('tilemaps/castle', 'assets/tilemap.json')
+    // scene.load.tilemapTiledJSON('tilemaps/castle', 'assets/level2.json')
     scene.load.image('tilesets/castle', 'assets/castle-tileset.png')
     scene.load.spritesheet('textures/bigfish', 'assets/big-fish.png', {
       frameWidth: 24,
@@ -67,6 +68,10 @@
     scene.load.spritesheet('textures/player', 'assets/adventurer.png', {
       frameWidth: 50,
       frameHeight: 37,
+    })
+    scene.load.spritesheet('textures/wall', 'assets/wall-of-death.png', {
+      frameWidth: 38,
+      frameHeight: 216,
     })
   }
 
@@ -159,6 +164,12 @@
       frameRate: 10,
       repeat: -1,
     })
+    scene.anims.create({
+      key: 'anims/wall/default',
+      frames: scene.anims.generateFrameNumbers('textures/wall'),
+      frameRate: 6,
+      repeat: -1,
+    })
   }
 </script>
 
@@ -194,7 +205,7 @@
           collisionByProperty={{ collision: true }}
         />
         <TileLayer id="bg" tilesets={['castle-tileset']} />
-        <ObjectLayer id="enemies" components={{ BabyFish, BigFish, Bobomb, Chomp, Chucka, Fish, Lakitu, Skelly }} />
+        <ObjectLayer id="enemies" components={{ BabyFish, BigFish, Bobomb, Chomp, Chucka, Fish, Lakitu, Skelly, Wall }} />
 
       </Tilemap>
     </Spawner>

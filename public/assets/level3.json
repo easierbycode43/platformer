@@ -45,6 +45,23 @@
                  "width":8,
                  "x":358,
                  "y":387
+                }, 
+                {
+                 "height":216,
+                 "id":28,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"component",
+                         "type":"string",
+                         "value":"Wall"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":38,
+                 "x":0.333333333333337,
+                 "y":199.666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -67,7 +84,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":28,
+ "nextobjectid":29,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",

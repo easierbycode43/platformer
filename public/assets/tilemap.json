@@ -62,6 +62,23 @@
                  "width":0,
                  "x":1061.42265367945,
                  "y":416.894478117266
+                }, 
+                {
+                 "height":216,
+                 "id":9,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"component",
+                         "type":"string",
+                         "value":"Wall"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":38,
+                 "x":180.977529240446,
+                 "y":211.506881218041
                 }],
          "offsetx":-181.141951925064,
          "offsety":-43.3914181417453,
@@ -86,7 +103,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":9,
+ "nextobjectid":10,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
