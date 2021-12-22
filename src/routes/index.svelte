@@ -21,6 +21,7 @@
   import Chucka from './Chucka.svelte'
   import Wall from './Wall.svelte'
   import Ryu from './Ryu.svelte'
+  import Portal from './Portal.svelte'
 
   let game
 
@@ -226,7 +227,7 @@
           collisionByProperty={{ collision: true }}
         />
         <TileLayer id="bg" tilesets={['castle-tileset']} />
-        <ObjectLayer id="enemies" components={{ BabyFish, BigFish, Bobomb, Chomp, Chucka, Fish, Lakitu, Ryu, Skelly, Wall }} />
+        <ObjectLayer id="enemies" components={{ BabyFish, BigFish, Bobomb, Chomp, Chucka, Fish, Lakitu, Portal, Ryu, Skelly, Wall }} />
 
       </Tilemap>
     </Spawner>

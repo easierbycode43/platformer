@@ -79,6 +79,43 @@
                  "width":38,
                  "x":180.977529240446,
                  "y":211.506881218041
+                }, 
+                {
+                 "height":32,
+                 "id":10,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"component",
+                         "type":"string",
+                         "value":"Portal"
+                        }, 
+                        {
+                         "name":"height",
+                         "type":"int",
+                         "value":32
+                        }, 
+                        {
+                         "name":"spawnX",
+                         "type":"int",
+                         "value":48
+                        }, 
+                        {
+                         "name":"spawnY",
+                         "type":"int",
+                         "value":48
+                        }, 
+                        {
+                         "name":"width",
+                         "type":"int",
+                         "value":16
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1333,
+                 "y":220
                 }],
          "offsetx":-181.141951925064,
          "offsety":-43.3914181417453,
@@ -103,7 +140,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":10,
+ "nextobjectid":11,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
