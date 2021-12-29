@@ -28,8 +28,8 @@
   $: window.game = game
 
   function preload(scene) {
-    scene.load.tilemapTiledJSON('tilemaps/castle', 'assets/tilemap.json')
-    // scene.load.tilemapTiledJSON('tilemaps/castle', 'assets/level2.json')
+    // scene.load.tilemapTiledJSON('tilemaps/castle', 'assets/tilemap.json')
+    scene.load.tilemapTiledJSON('tilemaps/castle', 'assets/level2.json')
     scene.load.image('tilesets/castle', 'assets/castle-tileset.png')
     scene.load.spritesheet('textures/bigfish', 'assets/big-fish.png', {
       frameWidth: 24,
