@@ -22,14 +22,20 @@
   import Wall from './Wall.svelte'
   import Ryu from './Ryu.svelte'
   import Portal from './Portal.svelte'
+import { onMount } from 'svelte';
 
+  let fgLayer
   let game
 
   $: window.game = game
 
   function preload(scene) {
     // scene.load.tilemapTiledJSON('tilemaps/castle', 'assets/tilemap.json')
-    scene.load.tilemapTiledJSON('tilemaps/castle', 'assets/level2.json')
+    // scene.load.tilemapTiledJSON('tilemaps/castle', 'assets/level2.json')
+    scene.load.tilemapTiledJSON('tilemaps/castle', 'assets/duaniacs_level.json')
+    // scene.load.tilemapTiledJSON('tilemaps/castle', 'assets/duaniacs_pyramid.json')
+    // scene.load.tilemapTiledJSON('tilemaps/castle', 'assets/duaniacs_toad.json')
+    // scene.load.tilemapTiledJSON('tilemaps/castle', 'assets/duaniacs_castle.json')
     scene.load.image('tilesets/castle', 'assets/castle-tileset.png')
     scene.load.spritesheet('textures/bigfish', 'assets/big-fish.png', {
       frameWidth: 24,
@@ -193,6 +199,19 @@
 
     scene.bgMusic.play({ loop: true })
   }
+
+  onMount(() => {
+    setTimeout(() => {
+    fgLayer.forEachTile((tile: Phaser.Tilemaps.Tile) => {
+      
+      console.log( tile )
+
+      if (tile.properties.collidesTop) {
+        tile.setCollision(false, false, true, false);
+      }
+    })
+    }, 1000)
+  })
 </script>
 
 <Game
@@ -225,9 +244,10 @@
           name="ground"
           tilesets={['castle-tileset']}
           collisionByProperty={{ collision: true }}
+          bind:instance={fgLayer}
         />
         <TileLayer id="bg" tilesets={['castle-tileset']} />
-        <ObjectLayer id="enemies" components={{ BabyFish, BigFish, Bobomb, Chomp, Chucka, Fish, Lakitu, Portal, Ryu, Skelly, Wall }} />
+        <!-- <ObjectLayer id="enemies" components={{ BabyFish, BigFish, Bobomb, Chomp, Chucka, Fish, Lakitu, Portal, Ryu, Skelly, Wall }} /> -->
 
       </Tilemap>
     </Spawner>

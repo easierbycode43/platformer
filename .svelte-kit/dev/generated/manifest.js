@@ -9,6 +9,7 @@ const c = [
 	() => import("../../../src/routes/Chucka.svelte"),
 	() => import("../../../src/routes/Lakitu.svelte"),
 	() => import("../../../src/routes/Player.svelte"),
+	() => import("../../../src/routes/Portal.svelte"),
 	() => import("../../../src/routes/Skelly.svelte"),
 	() => import("../../../src/routes/Chomp.svelte"),
 	() => import("../../../src/routes/Fish.svelte"),
@@ -43,20 +44,23 @@ export const routes = [
 	// src/routes/Player.svelte
 	[/^\/Player\/?$/, [c[0], c[9]], [c[1]]],
 
+	// src/routes/Portal.svelte
+	[/^\/Portal\/?$/, [c[0], c[10]], [c[1]]],
+
 	// src/routes/Skelly.svelte
-	[/^\/Skelly\/?$/, [c[0], c[10]], [c[1]]],
+	[/^\/Skelly\/?$/, [c[0], c[11]], [c[1]]],
 
 	// src/routes/Chomp.svelte
-	[/^\/Chomp\/?$/, [c[0], c[11]], [c[1]]],
+	[/^\/Chomp\/?$/, [c[0], c[12]], [c[1]]],
 
 	// src/routes/Fish.svelte
-	[/^\/Fish\/?$/, [c[0], c[12]], [c[1]]],
+	[/^\/Fish\/?$/, [c[0], c[13]], [c[1]]],
 
 	// src/routes/Wall.svelte
-	[/^\/Wall\/?$/, [c[0], c[13]], [c[1]]],
+	[/^\/Wall\/?$/, [c[0], c[14]], [c[1]]],
 
 	// src/routes/Ryu.svelte
-	[/^\/Ryu\/?$/, [c[0], c[14]], [c[1]]]
+	[/^\/Ryu\/?$/, [c[0], c[15]], [c[1]]]
 ];
 
 // we import the root layout/error components eagerly, so that
