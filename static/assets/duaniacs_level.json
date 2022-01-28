@@ -28,34 +28,7 @@
          "draworder":"topdown",
          "id":3,
          "name":"enemies",
-         "objects":[
-                {
-                 "height":32,
-                 "id":15,
-                 "name":"level1-pyramid",
-                 "properties":[
-                        {
-                         "name":"direction",
-                         "type":"string",
-                         "value":"up"
-                        }, 
-                        {
-                         "name":"marioSpawnX",
-                         "type":"int",
-                         "value":32
-                        }, 
-                        {
-                         "name":"marioSpawnY",
-                         "type":"int",
-                         "value":378
-                        }],
-                 "rotation":0,
-                 "type":"portal",
-                 "visible":true,
-                 "width":16,
-                 "x":511,
-                 "y":383
-                }],
+         "objects":[],
          "offsetx":1.23887504359547,
          "offsety":0.722355890385337,
          "opacity":1,
@@ -79,7 +52,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":16,
+ "nextobjectid":15,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
