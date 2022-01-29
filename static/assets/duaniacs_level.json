@@ -55,6 +55,33 @@
                  "width":16,
                  "x":511,
                  "y":383
+                }, 
+                {
+                 "height":32,
+                 "id":16,
+                 "name":"level2",
+                 "properties":[
+                        {
+                         "name":"direction",
+                         "type":"string",
+                         "value":"up"
+                        }, 
+                        {
+                         "name":"marioSpawnX",
+                         "type":"int",
+                         "value":32
+                        }, 
+                        {
+                         "name":"marioSpawnY",
+                         "type":"int",
+                         "value":368
+                        }],
+                 "rotation":0,
+                 "type":"portal",
+                 "visible":true,
+                 "width":32,
+                 "x":1935,
+                 "y":383
                 }],
          "offsetx":1.23887504359547,
          "offsety":0.722355890385337,
@@ -79,10 +106,10 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":16,
+ "nextobjectid":17,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.7.2",
+ "tiledversion":"1.7.1",
  "tileheight":16,
  "tilesets":[
         {
